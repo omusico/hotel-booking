@@ -1,0 +1,28 @@
+
+<div id="hotelList">
+{if $_REQUEST.delete}<div class="msg">The hotel has been deleted. All associated reservations, rooms, and other data have been removed.</div>{/if}
+<form method="post" action="/actions/doHotel.php">
+<div style="font-size: 16px; font-weight: bold; padding-bottom: 10px">Hotels List</div>
+<table border="1" cellpadding="5" style="border-collapse: collapse">
+<tr>
+	<th>ID</th>
+	<th>Name</th>
+	<th>Country</th>
+	<th>Location</th>
+	<th>Rating</th>
+	<th>Type</th>
+	<th>Actions</th>
+</tr>
+{foreach from=$hotels item=i}
+<tr>
+	<td>{$i.hotelid}</td>
+	<td>{$i.hotelname}</td>
+	<td>{$i.country.countryname}</td>
+	<td>{$i.location.locationname}</td>
+	<td>{$i.rating}</td>
+	<td>{$i.type}</td>
+	<td><a href="infoHotel.php?id={$i.hotelid}"><img src="/images/edit.png" alt="Edit" title="Edit" /></a> <a href="javascript:if (confirm('Are you sure you want to delete this hotel? This will remove all related reservations permanently.')) window.location = '/actions/doHotel.php?action=remove&id={$i.hotelid}'"><img src="/images/remove.png" alt="Remove" title="Remove" /></a></td>
+</tr>
+{/foreach}
+</table>
+</div>

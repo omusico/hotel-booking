@@ -1,0 +1,109 @@
+<div id="hotel_info">
+{if $_REQUEST.msg}<div class="msg">{if $_REQUEST.msg == "success"}Your changes were successfully saved.{/if}</div>{/if}
+<form method="post" action="/actions/doHotel.php">
+{if $hotel}
+<input type="hidden" name="id" value="{$hotel.hotelid}" />
+<input type="hidden" name="action" value="edit" />
+{else}
+<input type="hidden" name="action" value="add" />
+{/if}
+	<div class="contentBox">
+	<div class="title">{if $hotel}Edit: {$hotel.hotelname}{else}Add New Hotel{/if}</div>
+	<fieldset>
+	<legend>Info</legend>
+	<div class="leftitem">Hotel Name</div>
+	<div class="rightitem"><input type="text" name="hotelname" size="50" value="{$hotel.hotelname}" /></div><br/><br/>
+	<div id="countrySelect">
+	<div class="leftitem">Country</div>
+	<div class="rightitem"><select name="countryid">
+		<option value="">Select a country</option>
+		{foreach from=$countries item=i}<option value="{$i.countryid}" {if $location.countryid == $i.countryid} selected="selected"{/if}>{$i.countryname}</option>{/foreach}
+	</select></div><br /><br />
+	</div>
+	{if $hotel}
+	<div id="locationSelect">
+	<div class="leftitem">Location</div>
+	<div class="rightitem"><select name="locationid">{foreach from=$locations item=i}<option value="{$i.locationid}" {if $hotel.locationid == $i.locationid} selected="selected"{/if}>{$i.locationname}</option>{/foreach}</select></div><br /><br/>
+	</div>
+	{else}
+	<div id="locationSelect" class="hidden">
+	<div class="leftitem">Location</div>
+	<div class="rightitem"></div><br /><br />
+	</div>
+	{/if}
+	<div class="leftitem">Rating</div>
+	<div class="rightitem"><select name='rating'>
+		<option value='1' {if $hotel.rating == '1'}selected="selected"{/if}>1</option>
+		<option value='2' {if $hotel.rating == '2'}selected="selected"{/if}>2</option>
+		<option value='3' {if $hotel.rating == '3'}selected="selected"{/if}>3</option>
+		<option value='4' {if $hotel.rating == '4'}selected="selected"{/if}>4</option>
+		<option value='5' {if $hotel.rating == '5'}selected="selected"{/if}>5</option>
+	</select></div><br /><br/>
+	<div class="leftitem">Type</div>
+	<div class="rightitem"><select name='type'>
+		<option value='all' {if $hotel.type == 'all'}selected="selected"{/if}>All</option>
+		<option value='business' {if $hotel.type == 'business'}selected="selected"{/if}>Business</option>
+		<option value='tourism' {if $hotel.type == 'tourism'}selected="selected"{/if}>Tourism</option>
+	</select></div><br /><br/>
+	</fieldset>
+	<fieldset>
+		<legend>Services</legend>
+		<div class="leftitem">WiFi</div>
+		<div class="rightitem"><select name='wifi'>
+			<option value='no' {if $hotel.wifi == 'all'}selected="selected"{/if}>No</option>
+			<option value='paid' {if $hotel.wifi == 'paid'}selected="selected"{/if}>Paid</option>
+			<option value='free' {if $hotel.wifi == 'free'}selected="selected"{/if}>Free</option>
+		</select></div><br /><br />
+		<div class="leftitem">Internet</div>
+		<div class="rightitem"><select name='internet'>
+			<option value='none' {if $hotel.internet == 'none'}selected="selected"{/if}>None</option>
+			<option value='lobbyonly' {if $hotel.internet == 'lobbyonly'}selected="selected"{/if}>Lobby Only</option>
+			<option value='cable' {if $hotel.internet == 'cable'}selected="selected"{/if}>Cable</option>
+			<option value='wireless' {if $hotel.internet == 'wireless'}selected="selected"{/if}>Wireless</option>
+		</select></div><br /><br />
+		<div class="leftitem">Parking</div>
+		<div class="rightitem"><select name='parking'>
+			<option value='none' {if $hotel.parking == 'none'}selected="selected"{/if}>None</option>
+			<option value='self' {if $hotel.parking == 'self'}selected="selected"{/if}>Self</option>
+			<option value='valet' {if $hotel.parking == 'valet'}selected="selected"{/if}>Valet</option>
+			<option value='both' {if $hotel.parking == 'both'}selected="selected"{/if}>Self & Valet</option>
+		</select></div><br /><br />
+		<div class="leftitem">Number of Restaurants:</div>
+		<div class="rightitem"><input type="text" name="restaurants" size="4" value="{$hotel.restaurants}" /></div><br/><br />
+		<div class="hotelOptions">
+		<div class="leftitem">Pool</div>
+		<div class="rightitem"><input type="checkbox" name="pool" value="1" {if $hotel.pool == '1'}checked="checked"{/if} /></div>
+		<div class="leftitem">Bar</div>
+		<div class="rightitem"><input type="checkbox" name="bar" value="1" {if $hotel.bar == '1'}checked="checked"{/if} /></div>
+		<div class="leftitem">Gym</div>
+		<div class="rightitem"><input type="checkbox" name="gym" value="1" {if $hotel.gym == '1'}checked="checked"{/if} /></div>
+		<div class="leftitem">Spa</div>
+		<div class="rightitem"><input type="checkbox" name="spa" value="1" {if $hotel.spa == '1'}checked="checked"{/if} /></div>
+		<div class="leftitem">Laundry</div>
+		<div class="rightitem"><input type="checkbox" name="laundry" value="1" {if $hotel.laundry == '1'}checked="checked"{/if} /></div>
+		<div class="leftitem">Disable Friendly</div>
+		<div class="rightitem"><input type="checkbox" name="disable_friendly" value="1" {if $hotel.disable_friendly == '1'}checked="checked"{/if} /></div>
+		<div class="leftitem">Gay Friendly</div>
+		<div class="rightitem"><input type="checkbox" name="gay_friendly" value="1" {if $hotel.gay_friendly == '1'}checked="checked"{/if} /></div>
+		<div class="leftitem">Pets</div>
+		<div class="rightitem"><input type="checkbox" name="pets" value="1" {if $hotel.pets == '1'}checked="checked"{/if} /></div>
+		<div class="leftitem">Meeting Rooms</div>
+		<div class="rightitem"><input type="checkbox" name="meetingrooms" value="1" {if $hotel.meetingrooms == '1'}checked="checked"{/if} /></div>
+		<div class="leftitem">Airport Shuttle</div>
+		<div class="rightitem"><input type="checkbox" name="airport_shuttle" value="1" {if $hotel.airport_shuttle == '1'}checked="checked"{/if} /></div>
+		<div class="leftitem">Shopping Center</div>
+		<div class="rightitem"><input type="checkbox" name="shopping_center" value="1" {if $hotel.shopping_center == '1'}checked="checked"{/if} /></div>
+		<div class="leftitem">Express Check-in</div>
+		<div class="rightitem"><input type="checkbox" name="express_checking" value="1" {if $hotel.express_checking == '1'}checked="checked"{/if} /></div>
+		<div class="leftitem">Non-Smoking</div>
+		<div class="rightitem"><input type="checkbox" name="nonsmokingareas" value="1" {if $hotel.nonsmokingareas == '1'}checked="checked"{/if} /></div>
+		<div class="leftitem">Safe-Deposit Box</div>
+		<div class="rightitem"><input type="checkbox" name="safedepositbox" value="1" {if $hotel.safedepositbox == '1'}checked="checked"{/if} /></div>
+		<div class="leftitem">Luggage Storage</div>
+		<div class="rightitem"><input type="checkbox" name="luggagestorage" value="1" {if $hotel.luggagestorage == '1'}checked="checked"{/if} /></div>
+		</div>
+	</fieldset>
+	<input type="submit" class="button" value="Save Changes" />
+	</div>
+</form>
+</div>

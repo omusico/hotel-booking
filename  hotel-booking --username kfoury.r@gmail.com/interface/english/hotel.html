@@ -1,0 +1,73 @@
+<div id="LeftCol">
+	<div id="sideBox">
+	<div class="title">Search Hotels</div>
+	<form method="get" action="searchresults.php">	
+	<input type="hidden" name="locationid" id="locationid" value="" />
+		Destination<br />
+		<input type="text" id="searchDestination" class="defaultValue" value="type your location..." originalValue="type your location..." size="30" /><br />
+		<br />
+		Check-in on<br />
+		<input type="text" class="datepicker" /><br />
+		<br />
+		Check-out on<br />
+		<input type="text" class="datepicker" /><br />
+		<br />
+		Adults <select name="adults">
+		{section name=i start=1 loop=101 step=1}
+		<option value="{$smarty.section.i.index}">{$smarty.section.i.index}</option>
+		{/section}
+		</select>
+		Children <select name="children">
+		{section name=i start=1 loop=101 step=1}
+		<option value="{$smarty.section.i.index}">{$smarty.section.i.index}</option>
+		{/section}
+		</select><br />
+		<br />
+		<input type="submit" class="button" value="Search" /> 
+		<input type="button" class="button" value="Choose more options" /> 
+	</form>
+	</div>
+	<div id="sideBox">
+		<div class="title">Recent Bookings</div>
+	</div>
+</div>
+	
+
+<div id="center">
+<h1>{$hotel.hotelname}</h1>
+<div class="hotel_profile_image"><img src="/images/hotel.gif" style="width: 400px;"/></div>
+<div id="hotel_contact"><h2>Contact</h2></div>
+<div id="hotel_services"><h2>Services</h2>
+	<div>
+		{if $hotel.wifi != 'none'}<img src="/images/services/wifi.png" alt="Wifi" title="The hotel has WiFi."/>{/if}
+		{if $hotel.disable_friendly == 1}<img src="/images/services/disable_friendly.png" alt="Disable Friendly" title="The hotel is disable friendly."/>{/if}
+		{if $hotel.gay_friendly == 1}<img src="/images/services/gay_friendly.png" alt="Gay Friendly" title="The hotel is gay friendly."/>{/if}
+		{if $hotel.express_checking == 1}<img src="/images/services/express_checking.png" alt="Express Check-in" title="The hotel allows express check-out/in."/>{/if}
+		{if $hotel.nonsmokingareas == 1}<img src="/images/services/nonsmokingareas.png" alt="Non-Smoking" title="The hotel has non-smoking areas."/>{/if}
+	</div>
+	<div>
+		{if $hotel.pool == 1}<img src="/images/services/pool.png" alt="Pool" title="The hotel has a pool."/>{/if}
+		{if $hotel.gym == 1}<img src="/images/services/gym.png" alt="Gym" title="The hotel has a gym."/>{/if}
+		{if $hotel.spa == 1}<img src="/images/services/spa.png" alt="Spa" title="The hotel has a spa."/>{/if}
+		{if $hotel.bar == 1}<img src="/images/services/bar.png" alt="Bar" title="The hotel has a bar."/>{/if}
+		{if $hotel.luggaestorage == 1}<img src="/images/services/spa.png" alt="Luggage Storage" title="The hotel has a luggage storage."/>{/if}
+	</div>
+	<div>
+		{if $hotel.laundry == 1}<img src="/images/services/laundry.png" alt="Laundry" title="The hotel has laundry services."/>{/if}
+		{if $hotel.safedepositbox == 1}<img src="/images/services/safedepositbox.png" alt="Safe-Deposit Box" title="The hotel has Safe-Deposit boxes."/>{/if}
+		{if $hotel.pets == 1}<img src="/images/services/pets.png" alt="Pets" title="The hotel allows pets."/>{/if}
+		{if $hotel.mettingrooms == 1}<img src="/images/services/mettingrooms.png" alt="Meeting Rooms" title="The hotel has metting rooms."/>{/if}
+		{if $hotel.airport_shuttle == 1}<img src="/images/services/airport_shuttle.png" alt="Airport Shuttle" title="The hotel has an airport shuttle.."/>{/if}
+		{if $hotel.shopping_center == 1}<img src="/images/services/shopping_center.png" alt="Shopping Center" title="The hotel has a shopping center."/>{/if}
+	</div>
+</div>
+<div id="hotel_rating"><h2>Rating</h2>
+	{if $hotel.rating}
+	<img src="/images/rating/rating{$hotel.rating}.png" alt="Rating" title="This hotel has a rating of {$hotel.rating} stars."/>
+	{/if}
+</div>
+<div id="hotel_reviews"><h2>Availability</h2></div>
+<div id="hotel_reviews"><h2>Reviews</h2></div>
+<div id="hotel_rooms"><h2>Room Types</h2></div>
+<div id="hotel_about"><h2>About {$hotel.hotelname}</h2></div>
+</div>
