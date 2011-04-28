@@ -1,0 +1,18 @@
+<div id="hotelList">
+<form method="post" action="/actions/doHotel.php">
+{if $hotels}
+	<h2>These are the hotels we found for you:</h2>
+	{foreach from=$hotels item=i}
+	<div class="searchresult_row">
+		<div class="hotel_image"><a href="/hotel.php?id={$i.hotelid}"><img src="/images/hotel.gif"/></a></div>
+		<div class="hotel_info"><a href="/hotel.php?id={$i.hotelid}"><h3>{$i.hotelname}</h3></a>
+		<span class="titleBold">Location:</span> {$i.country.countryname}, {$i.location.locationname} - <span class="titleBold">Rating:</span> <img src="/images/rating/rating{$i.rating}.png" alt="Rating" title="This hotel has a rating of {$i.rating} stars."/> - <span class="titleBold">Type:</span> {if $i.type == 'all'}business/tourism{else}{$i.type}{/if}
+		</div>
+		<div class="clear"></div>
+	</div>
+	{/foreach}
+{else}
+	We couldn't find any hotels matching your criteria, please <a href=".">try again</a>.
+{/if}
+</table>
+</div>

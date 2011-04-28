@@ -1,0 +1,60 @@
+body, html { margin:0;padding:0 }
+body { font-family: Helvetica, Arial; font-size: 12px; background-color: #eee; text-align:justify; }
+img { border-style: none }
+input { font-family: Helvetica, Arial }
+input[type=text] { border: 1px solid #6284a8; padding: 3px }
+
+.hidden { display: none }
+.clear { clear: both }
+.msg { margin-top: 10px; margin-bottom: 10px; padding: 5px; background-color: #f3f3f3; border: 1px solid black; border-radius: 10px }
+
+.defaultValue { font-style: italic; color: #999 }
+.datepicker { width:65px }
+
+th { text-align: left }
+a {text-decoration:none; color: white}
+
+#container { margin: auto; width: 900px; background: url(/images/dropshadow.png) repeat-y; background-position: right top; padding-right: 20px; border-left: 1px solid #ccc }
+#container #main { background-color: white; }
+
+#logo { padding: 10px }
+#menu { margin: 5px 0px; height: 26px; background: #386087; color: white; font-size: 12px }
+#menu div { float: left; height: 14px; padding: 6px 12px; border-right: 1px solid #ccc }
+#menu div:hover { cursor: pointer; background: #9bbfe3 }
+#menu img { vertical-align: top }
+a {}
+#content { padding: 10px }
+
+#search { float: left; background-image: url(/images/search-map.jpg); background-repeat: no-repeat; background-position: top right; height: 300px; width: 230px; padding: 0px 650px 0px 0px; border-bottom: 1px solid black }
+.button { border: 1px solid #6284a8; background-color: white; padding: 4px; font-size: 12px; border-radius: 6px }
+
+#sideBox {float: left; background-color: #f3f3f3; border: 1px solid black; border-radius: 10px; padding: 5px; width:100%; margin-bottom: 10px}
+#hot-deals { }
+
+#hotel_info .button { border: 1px solid #6284a8; background-color: white; padding: 4px; font-size: 12px; border-radius: 6px }
+#hotel_info .leftitem {float: left; width: 100px}
+#hotel_info .rightitem {float: left;}
+.hotelOptions .rightitem {width:100px}
+
+#hotelList {color: #6284a8; background: #e1e1e1; border: 1px solid black; border-radius: 10px; padding: 5px}
+.contentBox {color: #6284a8; background: url(/images/titlecurve.jpg) no-repeat #e1e1e1; padding-left: 20px; padding-top: 10px;}
+
+.title {font-size: 16px; font-weight: bold; padding-bottom: 10px}
+.titleBold {font-weight: bold;}
+h1 {font-size: 22px; font-weight: bold; color: white; padding-bottom: 10px; background-color: #587ab1; border: 1px solid black; border-radius: 10px; padding: 5px}
+h2 {font-size: 14px; font-weight: bold; color: white; padding-bottom: 10px; background-color: #587ab1; border: 1px solid black; border-radius: 10px; padding: 5px}
+h3 {font-size: 19px; font-weight: bold; color: #6284a8}
+
+
+#LeftCol {float: left;  width: 25%; margin-right: 20px;}
+#center {float: left; width: 70%;}
+
+#hotel_services img {margin-left: 30px; width: 40px}
+
+.searchresult_row {margin-bottom: 10px; border: 1px solid black; border-radius: 10px; padding: 5px; background-color: #dff0ff}
+#hotelList .hotel_image img {margin-left: 5px; margin-right: 5px; height: 80px}
+#hotelList img {margin-left: 10px; margin-right: 10px; height: 10px}
+.searchresult_row .hotel_image {float: left}
+.searchresult_row .hotel_info {float: left}
+
+#textBox {margin-bottom: 10px; border: 1px solid black; border-radius: 10px; padding: 5px; background-color: #f3f3f3; width:100%}

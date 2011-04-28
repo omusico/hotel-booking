@@ -1,0 +1,46 @@
+<div id="LeftCol">
+	<div id="sideBox">
+	<div class="title">Search Hotels</div>
+	<form method="get" action="searchresults.php">	
+	<input type="hidden" name="locationid" id="locationid" value="" />
+		Destination<br />
+		<input type="text" id="searchDestination" class="defaultValue" value="type your location..." originalValue="type your location..." size="30" /><br />
+		<br />
+		Check-in on<br />
+		<input type="text" class="datepicker" /><br />
+		<br />
+		Check-out on<br />
+		<input type="text" class="datepicker" /><br />
+		<br />
+		Adults <select name="adults">
+		{section name=i start=1 loop=101 step=1}
+		<option value="{$smarty.section.i.index}">{$smarty.section.i.index}</option>
+		{/section}
+		</select>
+		Children <select name="children">
+		{section name=i start=1 loop=101 step=1}
+		<option value="{$smarty.section.i.index}">{$smarty.section.i.index}</option>
+		{/section}
+		</select><br />
+		<br />
+		<input type="submit" class="button" value="Search" /> 
+		<input type="button" class="button" value="Choose more options" /> 
+	</form>
+	</div>
+	<div id="sideBox">
+		<div class="title">Recent Bookings</div>
+	</div>
+</div>
+	
+
+<div id="center">
+<div id="textBox">
+<h1>Why Use Booking Lebanon?</h1>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet fermentum nibh. Phasellus ullamcorper mi egestas augue dictum a vehicula arcu fermentum. Vivamus viverra congue ligula et blandit. Vivamus tincidunt blandit lorem sed tempor. Nullam quis elit nec felis tempor volutpat id eu risus. Aenean fringilla ligula a massa lobortis non porttitor dolor ultrices. Morbi consectetur felis nec erat mollis porta. Vivamus ut tortor neque. Aenean vel ornare magna. Praesent lacinia ante arcu. Maecenas bibendum venenatis viverra. Pellentesque at augue a tortor convallis dictum ut ac erat. Donec vel justo turpis. Suspendisse id mi risus, sit amet molestie tellus. Duis molestie quam in urna bibendum lacinia. Vivamus vel velit orci. Pellentesque nec odio lorem.
+<br /><br />
+Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse consectetur, orci faucibus tincidunt gravida, nunc nulla dapibus mauris, at vestibulum erat libero vel orci. Pellentesque ac auctor ligula. Suspendisse non leo in est porta scelerisque eu sed augue. Phasellus diam elit, dapibus vel porta eget, dignissim interdum augue. Aliquam erat volutpat. In orci orci, euismod id elementum et, luctus at magna. Proin vestibulum nibh at lorem venenatis vel ultricies sem tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. In consequat mattis urna.
+<h1>Who We Are?</h1>
+Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse consectetur, orci faucibus tincidunt gravida, nunc nulla dapibus mauris, at vestibulum erat libero vel orci. Pellentesque ac auctor ligula. Suspendisse non leo in est porta scelerisque eu sed augue. Phasellus diam elit, dapibus vel porta eget, dignissim interdum augue. Aliquam erat volutpat. In orci orci, euismod id elementum et, luctus at magna. Proin vestibulum nibh at lorem venenatis vel ultricies sem tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. In consequat mattis urna.
+</div>
+
+</div>
